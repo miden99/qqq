@@ -19,9 +19,9 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/BlackJack_Server$test.coverage" NAME="test Coverage Results" MODIFIED="1454755645468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BlackJack_Server$BJ_server.coverage" NAME="BJ_server Coverage Results" MODIFIED="1456485912869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BlackJack_Server$BJ_server.coverage" NAME="BJ_server Coverage Results" MODIFIED="1456486755128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BlackJack_Server$client.coverage" NAME="client Coverage Results" MODIFIED="1456484496367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WebSockets" />
-    <SUITE FILE_PATH="coverage/BlackJack_Server$BJ_client.coverage" NAME="BJ_client Coverage Results" MODIFIED="1456486095139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BlackJack_Server$BJ_client.coverage" NAME="BJ_client Coverage Results" MODIFIED="1456487433924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BlackJack_Server$server.coverage" NAME="server Coverage Results" MODIFIED="1456484491856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WebSockets" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/BJ_server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -48,8 +48,8 @@
       <file leaf-file-name="BJ_client.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BJ_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44444445">
-              <caret line="41" column="27" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.6507937">
+              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -515,7 +515,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456485137105</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;Мест нет!&quot;">
+      <created>1456486220076</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1456486220076</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -568,7 +574,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="ff" />
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="&quot;Мест нет!&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Мест нет!&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1024,7 +1031,7 @@
     <entry file="file://$PROJECT_DIR$/BJ_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -1033,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BJ_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44444445">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.6507937">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

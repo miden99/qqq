@@ -41,7 +41,7 @@ win.connect(gui.QUIT, win.quit, None)
 sign = gui.Table()
 Log_in = gui.Input(size=20)
 button_connect = gui.Button("Connect")
-label = gui.Label("Мест нет")
+label = gui.Input(size=20)
 
 # Стол
 sign.tr()
