@@ -9,13 +9,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         self.webSocketsPool = []
 
-        # settings = {
-        # 'static_url_prefix': '/static/',
-        # }
-        # connection = pymongo.Connection('127.0.0.1', 27017)
-        # self.db = connection.chat
         handlers = [
-            # (r'/', WSHandler),
             (r'/websocket', WSHandler),
         ]
 
@@ -25,9 +19,12 @@ class Application(tornado.web.Application):
 class WSHandler(tornado.websocket.WebSocketHandler):
     # Добавляет в список новые подключения
     def open(self):
-        print('new connection')
-        self.application.webSocketsPool.append(self)
-        print(self.application.webSocketsPool)
+        if len(self.application.webSocketsPool) < 4:
+            print('new connection')
+            self.application.webSocketsPool.append(self)
+            print(self.application.webSocketsPool)
+        else:
+            self.ws_connection.write_message('-----')
 
     # Отсылает сообщения другим клиентам и сообщает об отправке
     def on_message(self, message):
@@ -41,20 +38,14 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             else:
                 self.ws_connection.write_message("ping")
 
-    # Удаляет из списка отключившиеся клинты
+    # Удаляет из списка отключившиеся клиенты
     def on_close(self):
         print('connection closed')
         for key, value in enumerate(self.application.webSocketsPool):
             if value == self:
                 del self.application.webSocketsPool[key]
 
-    # def check_origin(self, origin):
-    #     return True
 
-
-# application = tornado.web.Application([
-#     (r'/websocket', WSHandler),
-# ])
 application = Application()
 
 if __name__ == "__main__":

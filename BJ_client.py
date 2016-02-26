@@ -33,21 +33,29 @@ def on_btn_connect(ws):
 
 # First Window
 screen = pygame.display.set_mode((RESX, RESY))
+
 win = gui.Desktop()
 win.connect(gui.QUIT, win.quit, None)
+
+#
 sign = gui.Table()
 Log_in = gui.Input(size=20)
 button_connect = gui.Button("Connect")
 label = gui.Label("Мест нет")
+
+# Стол
 sign.tr()
 sign.td(Log_in)
 sign.td(button_connect)
-# sign.td()
+sign.tr()
+sign.td(label)
 button_connect.connect(gui.CLICK, on_btn_connect, "Connect")
 
 win.init(widget=sign)
 
 # INIT
+
+
 # Second Window
 app = gui.Desktop()
 app.connect(gui.QUIT, app.quit, None)
@@ -55,31 +63,23 @@ app.connect(gui.QUIT, app.quit, None)
 # SOCKETS
 
 button_send = gui.Button('Send message')
-# button_clear = gui.Button('Clear')
 grid = c = gui.Table()
 input_field = gui.Input(size=20)
 chat = gui.TextArea()
 button_quit = gui.Button("Quit")
 
-#
+# Размер чата
 chat.style.height = 200
 chat.style.width = 300
 
-#
+# Стол
 grid.tr()
 grid.td(input_field)
 grid.tr()
 grid.td(chat)
 grid.tr()
 grid.td(button_send)
-# grid.td(button_quit)
 
-# grid.add(button, 0, 1)
-# grid.add(button2, 0, 2)
-# grid.add(input_field, 1, 3)
-# grid.add(chat, 1, 0, 20, 10)
-
-# button_quit.connect(gui.CLICK, app.quit, None)
 button_send.connect(gui.CLICK, on_btn_send, "Send")
 app.init(widget=grid)
 clock = pygame.time.Clock()
