@@ -30,6 +30,7 @@ def on_btn_send(value):
 
 def on_btn_connect(ws):
     t1.start()
+    win._quit = True
 
 # First Window
 screen = pygame.display.set_mode((RESX, RESY))
@@ -85,30 +86,18 @@ app.init(widget=grid)
 clock = pygame.time.Clock()
 
 
-def login():
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                sys.exit()
-            else:
-                win.event(event)
-        dt = clock.tick(FPS)
-        screen.fill((0, 0, 0))
-        win.paint()
-        pygame.display.flip()
-
-
 def main():
-    while True:
+    done = True
+    while done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                sys.exit()
+                print("!!")
+                done = False
+                ws.close()
+                break
             else:
                 app.event(event)
+
         dt = clock.tick(FPS)
         screen.fill((0, 0, 0))
         app.paint()
