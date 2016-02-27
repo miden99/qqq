@@ -19,12 +19,13 @@ class Application(tornado.web.Application):
 class WSHandler(tornado.websocket.WebSocketHandler):
     # Добавляет в список новые подключения
     def open(self):
-        if len(self.application.webSocketsPool) < 3:
+        if len(self.application.webSocketsPool) < 2:
             print('new connection')
             self.application.webSocketsPool.append(self)
             print(self.application.webSocketsPool)
         else:
-            self.ws_connection.write_message()
+            self.ws_connection.write_message('Sorry')
+            print('sorry')
 
     # Отсылает сообщения другим клиентам и сообщает об отправке
     def on_message(self, message):
@@ -35,8 +36,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             if value != self:
                 print('send -->', message)
                 value.ws_connection.write_message(message)
-            else:
-                self.ws_connection.write_message("ping")
+            # else:
+                # self.ws_connection.write_message("ping")
 
     # Удаляет из списка отключившиеся клиенты
     def on_close(self):

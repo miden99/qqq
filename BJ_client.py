@@ -9,15 +9,23 @@ RESX = 600
 RESY = 400
 FPS = 40
 
-
+CONNECT_SUCCESS = False
 #
 def on_message(ws, message):
+    print(message)
+    if message != 'Sorry':
+        win._quit = True
+        t2.start()
+    else:
+        label.value = message
+        ws.close()
+        # ws = websocket.WebSocketApp("ws://127.0.1.1:8888/websocket", on_message=on_message)
     chat.value += message + '\n'
 
 
 # Так надо
-def on_open(ws):
-    t2.start()
+# def on_open(ws):
+#     t2.start()
 
 
 # Должна отправлять сообщения
@@ -30,7 +38,7 @@ def on_btn_send(value):
 
 def on_btn_connect(ws):
     t1.start()
-    win._quit = True
+
 
 # First Window
 screen = pygame.display.set_mode((RESX, RESY))
@@ -104,8 +112,7 @@ def main():
         pygame.display.flip()
 
 # Так надо
-ws = websocket.WebSocketApp("ws://127.0.1.1:8888/websocket", on_message=on_message,
-                                                             on_open=on_open)
+ws = websocket.WebSocketApp("ws://127.0.1.1:8888/websocket", on_message=on_message)
 # init threads
 t1 = threading.Thread(target=ws.run_forever)
 t2 = threading.Thread(target=main)
