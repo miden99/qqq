@@ -3,6 +3,7 @@ import tornado.websocket
 import tornado.ioloop
 import tornado.web
 import socket
+from Classes.WSHandler import WSHandler
 
 
 class Application(tornado.web.Application):
@@ -14,38 +15,6 @@ class Application(tornado.web.Application):
         ]
 
         tornado.web.Application.__init__(self, handlers)
-
-
-class WSHandler(tornado.websocket.WebSocketHandler):
-    # Добавляет в список новые подключения
-    def open(self):
-        if len(self.application.webSocketsPool) < 2:
-            print('new connection')
-            self.application.webSocketsPool.append(self)
-            print(self.application.webSocketsPool)
-            self.ws_connection.write_message('Welcome')
-        else:
-            self.ws_connection.write_message('Sorry')
-            print('sorry')
-
-    # Отсылает сообщения другим клиентам и сообщает об отправке
-    def on_message(self, message):
-        # print('message received:  %s' % message)
-        # print('send -->', message)
-        # self.ws_connection.write_message(message)
-        for value in self.application.webSocketsPool:
-            if value != self:
-                print('send -->', message)
-                value.ws_connection.write_message(message)
-            # else:
-                # self.ws_connection.write_message("ping")
-
-    # Удаляет из списка отключившиеся клиенты
-    def on_close(self):
-        print('connection closed')
-        for key, value in enumerate(self.application.webSocketsPool):
-            if value == self:
-                del self.application.webSocketsPool[key]
 
 
 application = Application()

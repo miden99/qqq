@@ -3,7 +3,7 @@ from pgu import gui
 import pygame
 import threading
 import websocket
-
+import json
 
 RESX = 600
 RESY = 400
@@ -13,21 +13,26 @@ CONNECT_SUCCESS = False
 #
 
 
+# class App(websocket.WebSocketApp):
+#     def send(self, data, opcode=0x1):
+#         super().send(data, opcode=opcode)
+
+
 def on_message(ws, message):
-    print(message)
+    print(type(message))
     if message != 'Sorry':
         win._quit = True
         main_thread.start()
+        login = input_login.value
+        message = {"login": login}
+        # message = "Exit"
+        ws.send(json.dumps(message))
+        ws.send(message)
     else:
-        label.value = message
+        input_error.value = message
         ws.close()
         # ws = websocket.WebSocketApp("ws://127.0.1.1:8888/websocket", on_message=on_message)
-    chat.value += message + '\n'
-
-
-# Так надо
-# def on_open(ws):
-#     t2.start()
+    # chat.value += message + '\n'
 
 
 # Должна отправлять сообщения
@@ -38,8 +43,10 @@ def on_btn_send(value):
     input_field.value = ''
 
 
-def on_btn_connect(ws):
+def on_btn_connect(btn_event):
     ws_thread.start()
+    login = input_login.value
+
 
 
 # First Window
@@ -50,17 +57,22 @@ win.connect(gui.QUIT, win.quit, None)
 
 #
 sign = gui.Table()
-Log_in = gui.Input(size=20)
+label_login = gui.Label("nick")
+label_error = gui.Label("error")
+input_login = gui.Input(size=20)
 button_connect = gui.Button("Connect")
-label = gui.Input(size=20)
+input_error = gui.Input(size=20)
 
 # Стол
 sign.tr()
-sign.td(Log_in)
+sign.td(label_login)
+sign.td(input_login)
 sign.td(button_connect)
 sign.tr()
-sign.td(label)
+sign.td(label_error)
+sign.td(input_error)
 button_connect.connect(gui.CLICK, on_btn_connect, "Connect")
+
 
 win.init(widget=sign)
 
