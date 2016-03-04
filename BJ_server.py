@@ -23,6 +23,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print('new connection')
             self.application.webSocketsPool.append(self)
             print(self.application.webSocketsPool)
+            self.ws_connection.write_message('Welcome')
         else:
             self.ws_connection.write_message('Sorry')
             print('sorry')

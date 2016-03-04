@@ -11,11 +11,13 @@ FPS = 40
 
 CONNECT_SUCCESS = False
 #
+
+
 def on_message(ws, message):
     print(message)
     if message != 'Sorry':
         win._quit = True
-        t2.start()
+        main_thread.start()
     else:
         label.value = message
         ws.close()
@@ -37,7 +39,7 @@ def on_btn_send(value):
 
 
 def on_btn_connect(ws):
-    t1.start()
+    ws_thread.start()
 
 
 # First Window
@@ -114,7 +116,7 @@ def main():
 # Так надо
 ws = websocket.WebSocketApp("ws://127.0.1.1:8888/websocket", on_message=on_message)
 # init threads
-t1 = threading.Thread(target=ws.run_forever)
-t2 = threading.Thread(target=main)
+ws_thread = threading.Thread(target=ws.run_forever)
+main_thread = threading.Thread(target=main)
 
 win.run()
