@@ -1,0 +1,5 @@
+# motor==0.5
+# pygame==1.9.2a0
+# pymongo==2.8
+# schematics==1.1.1
+# tornado==4.3
